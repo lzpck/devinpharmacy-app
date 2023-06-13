@@ -57,8 +57,11 @@ function RegisterPharmacyPage() {
             return;
         }
 
+        //Recupera os dados existentes
+        let farmacias = JSON.parse(localStorage.getItem('pharmacyData')) || [];
+
         //Salvar dados no localStorage
-        const pharmacyData = {
+        const novaFarmacia = {
             razaoSocial,
             cnpj,
             nomeFantasia,
@@ -73,6 +76,11 @@ function RegisterPharmacyPage() {
             estado,
             complemento,
         };
+
+        // Adiciona a nova farmácia à lista
+        farmacias.push(novaFarmacia);
+
+        // Salva a lista atualizada de volta ao localStorage
         localStorage.setItem('pharmacyData', JSON.stringify(pharmacyData));
 
         // Exibir mensagem de sucesso
