@@ -26,7 +26,11 @@ function RegisterMedicinePage() {
             tipo,
         };
 
-        localStorage.setItem('dadosMedicamento', JSON.stringify(dadosMedicamento));
+        let medicamentos = JSON.parse(localStorage.getItem("medicamentos")) || [];
+
+        medicamentos.push(dadosMedicamento);
+
+        localStorage.setItem('medicamentos', JSON.stringify(medicamentos));
 
         toast.success("Medicamento cadastrado com sucesso!");
     };
