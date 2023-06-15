@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import Navigation from "./Navigation";
 
 function RegisterMedicinePage() {
     const [nomeMedicamento, setNomeMedicamento] = useState("");
@@ -39,6 +40,7 @@ function RegisterMedicinePage() {
         <>
             <ToastContainer />
             <div className="container">
+                <Navigation />
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6 col-xl-4">
                         <form className="mt-5" onSubmit={handleSubmit}>

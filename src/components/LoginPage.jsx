@@ -5,6 +5,21 @@ import { validateEmail, validatePassword } from "../utils/validators";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "../assets/devinpharmacy.png";
 
+// Esta é uma lista de usuários de teste
+const testUsers = [
+    { email: 'admin@example.com', password: 'admin1' },
+];
+
+// Esta função verifica se o e-mail e a senha fornecidos correspondem a um dos usuários de teste
+const authenticateUser = (email, password) => {
+    for (const user of testUsers) {
+        if (user.email === email && user.password === password) {
+            return user;
+        }
+    }
+    return null;
+};
+
 // Componente da página de login
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -17,8 +32,14 @@ function LoginPage() {
 
         // Validação dos campos de input
         if (validateEmail(email) && validatePassword(password)) {
-            setUser({ email });
-            navigate("/pharmacies"); // Redireciona para a página de farmácias
+            const user = authenticateUser(email, password);
+
+            if (user) {
+                setUser({ user });
+                navigate("/home");
+            } else {
+                alert("E-mail ou senha incorretos");
+            }
         } else {
             alert("Por favor, insira um email e uma senha válidos");
         }
@@ -30,7 +51,7 @@ function LoginPage() {
                 <div className="col-12 col-md-8 col-lg-6 col-xl-4">
                     <form className="mt-5" onSubmit={handleSubmit}>
                         <div className="text-center mb-4">
-                            <img src={logo} alt="Logo" style={{width: '300px'}} />
+                            <img src={logo} alt="Logo" style={{ width: '300px' }} />
                         </div>
                         <div className="form-group">
                             <input
@@ -43,7 +64,7 @@ function LoginPage() {
                             />
                         </div>
                         <div className="form-group mt-3 mt-md-4">
-                            <input 
+                            <input
                                 type="password"
                                 className="form-control"
                                 placeholder="Senha"

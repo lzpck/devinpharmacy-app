@@ -5,10 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import RegisterPharmacyPage from "./components/RegisterPharmacyPage.jsx";
 import RegisterMedicinePage from "./components/RegisterMedicinePage.jsx";
 import MedicationList from "./components/MedicationList.jsx";
-
-function HomePage() {
-  return <h1>Home Page</h1>;
-}
+import FAQPage from "./components/FAQPage.jsx";
+import HomePage from "./components/HomePage.jsx";
 
 function App() {
   return (
@@ -19,7 +17,8 @@ function App() {
       <Route path="/cadastro-farmacia" element={<RegisterPharmacyPage />} />
       <Route path="/cadastro-medicamento" element={<RegisterMedicinePage />} />
       <Route path="/lista-medicamentos" element={<MedicationList />} />
-      <Route path="/" element={<HomePage />} />
+      <Route path="/faq" element={<FAQPage />} />
+      <Route path="/home" element={<HomePage />} />
     </Routes>
       </Router>
     </UserProvider>

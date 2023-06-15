@@ -6,7 +6,7 @@ export function validateEmail(email) {
 
 // Função para validar uma senha
 export function validatePassword(password) {
-    // Deve conter pelo menos 8 caracteres e incluir números e letras
-    const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    // Deve conter pelo menos 6 caracteres e incluir números e letras
+    const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     return re.test(password);
 }

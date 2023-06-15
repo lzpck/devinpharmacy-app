@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './MedicationList.css';
+import Navigation from "./Navigation";
 
 const MedicationList = () => {
     const [medicamentos, setMedicamentos] = useState([]);
@@ -20,6 +21,7 @@ const MedicationList = () => {
 
     return (
         <div className="container">
+            <Navigation />
             <div className="row justify-content-center">
                 <div className="col-12">
                     <div className="mt-5">
