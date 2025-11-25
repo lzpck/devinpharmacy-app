@@ -47,6 +47,7 @@ function RegisterPharmacyPage() {
             .finally(() => {
                 setFetchingCep(false);
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cep]);  // Monitorar a variável cep
 
     const handleSubmit = (event) => {

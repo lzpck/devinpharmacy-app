@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext, createContext } from "react";
+import PropTypes from 'prop-types';
 
-const UserContext = React.createContext();
+const UserContext = createContext();
 
 // Componente para fornecer o estado do usuário para os componentes filhos
 export function UserProvider({ children }) {
@@ -13,7 +14,12 @@ export function UserProvider({ children }) {
     );
 }
 
+UserProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 // Hook personalizado para usar o contexto do usuário
+// eslint-disable-next-line react-refresh/only-export-components
 export function useUser() {
     return useContext(UserContext);
   }
